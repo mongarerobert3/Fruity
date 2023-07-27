@@ -1,7 +1,13 @@
-import Home from "./Home";
-import Styles from '../styles/Styles'
+import Fruits from "./Fruits/FruitsRow";
+import SearchBar from "./Home/SearchBar"; 
+import FruitsRow from "./Fruits/FruitsRow";
+import Categories from "./Home/Categories";
+import Welcome from "./Home/Welcome";
 
-export {
-	Home, 
-	Styles
-};
+export { 
+	Fruits,
+	SearchBar,
+	Welcome,
+	FruitsRow,
+	Categories,
+}

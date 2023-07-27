@@ -1,21 +1,23 @@
+import { Dimensions } from 'react-native'
+const { height, width } = Dimensions.get('window');
+
 const COLORS = {
-  primary: "#008000",
-  secondary: "#444262",
-  tertiary: "#ffd800",
+  primary: "#2A4D50",
+  secondary: "#DDF0FF",
+  tertiary: "#FF7754",
 
   gray: "#83829A",
   gray2: "#C1C0C8",
+  black: "#000000",
 
-  white: "#F3F4F8",
+  offwhite: "#F3F4F8",
+  white: "#FFFFFF",
+  black: "#000000",
+  red: "#e81e4d",
+  green: " #00C135",
   lightWhite: "#FAFAFC",
 };
 
-const FONT = {
-  regular: "DMRegular",
-  medium: "DMMedium",
-  bold: "DMBold",
-  weight: 600
-};
 
 const SIZES = {
   xSmall: 10,
@@ -23,8 +25,11 @@ const SIZES = {
   medium: 16,
   large: 20,
   xLarge: 24,
-  xxLarge: 32,
+  xxLarge: 44,
+  height,
+  width
 };
+
 
 const SHADOWS = {
   small: {
@@ -49,4 +54,5 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+
+export { COLORS, SIZES , SHADOWS };

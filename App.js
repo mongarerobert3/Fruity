@@ -1,27 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import {Home, Styles} from './components';
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
-const Stack = createStackNavigator();
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
+import BottomTabNavigation from './Navigation/BottomTabNavigation';
+import { Cart } from './Screens';
 
-function FruityApp () {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Fruity" style={Styles.fruityTitle} component={Home}  />
-    </Stack.Navigator>
-  )
-}
 
-function RootNavigator () {
-  return (
-    <NavigationContainer>
-      <FruityApp />
-    </NavigationContainer>
-  )
-}
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return <RootNavigator/>
-}
+  const [fontsLoaded] = useFonts({
+    regular: require("./assets/fonts/Poppins-Regular.ttf"),
+    light: require("./assets/fonts/Poppins-Light.ttf"),
+    bold: require("./assets/fonts/Poppins-Bold.ttf"),
+    medium: require("./assets/fonts/Poppins-Medium.ttf"),
+    extrabold: require("./assets/fonts/Poppins-ExtraBold.ttf"),
+    semibold: require("./assets/fonts/Poppins-SemiBold.ttf"),
+  })
+
+  const onLayoutRootView = useCallback(async() => {
+    if(fontsLoaded){
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded){
+    return null;
+  }
+  
+  return (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name='Bottom Navigation'
+        component={BottomTabNavigation}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name='Cart'
+        component={Cart}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+  )
+};
