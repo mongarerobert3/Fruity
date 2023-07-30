@@ -3,10 +3,10 @@ import React from 'react';
 import SingleItem from './SingleItem';
 import styles from './cartItems.style';
 
-const CartItems = ({ cartItems }) => {
-  const isCartEmpty = cartItems.length === 0;
-	
-  if (isCartEmpty) {
+const CartItems = ({ newCart }) => {
+	console.log("This are the items in the new CArt:", newCart)
+  
+  if (newCart.length === 0) {
     return (
       <View>
         <Image
@@ -19,14 +19,15 @@ const CartItems = ({ cartItems }) => {
         </TouchableOpacity>
       </View>
     )
+  } else {
+    return (
+      <FlatList
+        data={newCart}
+        renderItem={({ item }) => <SingleItem item={item} />}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    )
   }
-  return (
-    <FlatList
-      data={cartItems}
-      renderItem={({ item }) => <SingleItem item={item} />}
-      keyExtractor={(item) => item.id.toString()}
-    />
-  )
 }
 
 export default CartItems;

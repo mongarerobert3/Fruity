@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./fruitPage.style";
-import CartItems from '../Cart/CartItems';
+import { CartItems } from '../../components';
 
 const FruitPage = () => {
   const route = useRoute();
@@ -12,6 +12,8 @@ const FruitPage = () => {
   const { selectedItem } = route.params;
   const [heartPressed, setHeartPressed] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+
+  console.log("this are the cartItems:", cartItems)
 
   const handlePress = () => {
     navigation.navigate('HomePage');
@@ -21,7 +23,7 @@ const FruitPage = () => {
     setHeartPressed(!heartPressed);
   }
 
-  const handleAddToCart = (item) => {
+  const handleAddToCart = () => {
     const itemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (!itemInCart) {
@@ -89,13 +91,13 @@ const FruitPage = () => {
         <Text style={styles.price}>{selectedItem.price}/kg</Text>
         <TouchableOpacity style={styles.addToCartBtn}>
           <View>
-            <TouchableOpacity onPress={() => handleAddToCart(selectedItem)}>
+            <TouchableOpacity onPress={() => setCartItems([...cartItems, selectedItem])}>
               <Text style={styles.addToCartBtnTxt}>Add To Cart</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
       </View>
-      <CartItems cartItems={cartItems} />
+      <CartItems newCart={cartItems}/>
     </SafeAreaView>
   )
 }

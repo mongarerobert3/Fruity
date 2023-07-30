@@ -9,7 +9,7 @@ const Categories = () => {
     {id: '1', name: 'All'},
     {id: '2', name: 'Fruits'},
     {id: '3', name: 'Vegetables'},
-    {id: '4', name: 'Bakery'},
+    {id: '4', name: 'Farms'},
   ];
 
 	
@@ -28,7 +28,7 @@ const Categories = () => {
 				numColumns={4}
       />
     </View>
-  );
+  )
 }
 
 export default Categories;

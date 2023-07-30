@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import React, {useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from "@expo/vector-icons";
@@ -10,7 +10,6 @@ import styles from './cart.style';
 const Cart = () => {
   const navigation = useNavigation();
   const [heartPressed, setHeartPressed] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
 
   const handlePress = () => {
     navigation.navigate('HomePage');
@@ -49,7 +48,7 @@ const Cart = () => {
           </View>
         </View>
       </View>
-      <CartItems cartItems={cartItems}/>
+      <CartItems/>
     </SafeAreaView>
   )
 }

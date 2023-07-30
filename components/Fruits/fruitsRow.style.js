@@ -1,24 +1,34 @@
-import { BackHandler, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	fruitsRowWrapper: {
-		marginHorizontal: 20,
-		borderRadius: 50,
-		width: "100%",
-		height: 250
+		marginHorizontal: 10,
+		//width: "100%",
+    //flexDirection: "row",
+    //flexWrap: "wrap",
 	},
-	container: {
-    width: 170,
+	containers: {
+    marginLeft: -5,
+    width: "100%",
+    height: 200,
     margin: 10,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
-    overflow: 'hidden',
+  },
+  containerStyle: {
+    marginHorizontal: 20,
+    marginTop: 10,
+  },
+  containerItems: {
+    width: "100%"
   },
   imageContainer: {
-		borderRadius: 50,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
     height: "65%",
-		width: "85%"
+		width: "100%"
   },
   contentContainer: {
     padding: 10,
