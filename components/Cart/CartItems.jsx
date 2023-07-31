@@ -6,7 +6,7 @@ import styles from './cartItems.style';
 const CartItems = ({ newCart }) => {
 	console.log("This are the items in the new CArt:", newCart)
   
-  if (newCart.length === 0) {
+  if (newCart) {
     return (
       <View>
         <Image

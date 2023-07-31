@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./fruitPage.style";
-import { CartItems } from '../../components';
+import { CartItems } from '../../components/index';
 
 const FruitPage = () => {
   const route = useRoute();

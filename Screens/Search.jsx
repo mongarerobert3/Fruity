@@ -9,21 +9,21 @@ const Search = () => {
 	return (
 		<SafeAreaView>
 			<View style={styles.searchBarWrapper}>
-			<View style={styles.SearchBar}>
-				<TextInput
-					placeholder='What are you looking for?' 
-					style={styles.searchInput}
-				/>
-				<TouchableOpacity style={styles.searchIcon}>
-					<Ionicons
-						name='search-outline'
-						color="black"
-						size={30}
+				<View style={styles.SearchBar}>
+					<TextInput
+						placeholder='What are you looking for?' 
+						style={styles.searchInput}
 					/>
-				</TouchableOpacity>
-				
+					<TouchableOpacity style={styles.searchIcon}>
+						<Ionicons
+							name='search-outline'
+							color="black"
+							size={30}
+						/>
+					</TouchableOpacity>
+				</View>
 			</View>
-		</View>
+			
 		</SafeAreaView>
 	)
 }

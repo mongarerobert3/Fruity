@@ -6,6 +6,8 @@ import Welcome from "./Home/Welcome";
 import FruitPage from "./Fruits/FruitPage";
 import SingleItem from "./Cart/SingleItem" 
 import CartItems from "./Cart/CartItems";
+import BackBtn from "./BackBtn";
+import Button from "./Button";
 
 export { 
 	Fruits,
@@ -15,5 +17,7 @@ export {
 	Categories,
 	FruitPage,
 	SingleItem,
-	CartItems 
+	CartItems,
+	BackBtn,
+	Button
 }
