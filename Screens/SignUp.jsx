@@ -1,32 +1,32 @@
 import { ScrollView,
-	 TextInput,
-	 TouchableOpacity,
-	 Image,
-	 Text, 
-	 View,
-	 Alert
+	TextInput,
+	TouchableOpacity,
+	Image,
+	Text, 
+	View,
+	Alert
 } from 'react-native';
 import React, {useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BackBtn, Button } from '../components';
 import { Formik, formik } from 'formik';
 import * as Yup from 'yup';
-import {MaterialCommunityIcons} from "@expo/vector-icons"
+import {MaterialCommunityIcons, Ionicons} from "@expo/vector-icons"
 import styles from './login.style';
 import { COLORS } from '../constants';
 
-const validationSchema = Yup.object().shape({
-	password: Yup.string()
-		.min(8, 'Must be atleast 8 characters')
-		.required('Required'),
-	email: Yup.string().email('Invalid email address').required('Required'),
-});
-
-const LoginPage = ({ navigation }) => {
+const SignUp = ( { navigation }) => {
 	const [loader, setLoader] = useState(false);
-	const [responseData, setResponseData] = useState(null)
 	const [obsecureText, setObsecureText] = useState(false)
 	
+	const validationSchema = Yup.object().shape({
+		password: Yup.string()
+			.min(8, 'Must be atleast 8 characters')
+			.required('Required'),
+		email: Yup.string().email('Invalid email address').required('Required'),
+		location: Yup.string().min(3, 'Provide a valid location').required('Required'),
+	});
+
 	const InvalidForm = () => {
 		Alert.alert(
 			"Invalid Form",
@@ -42,6 +42,8 @@ const LoginPage = ({ navigation }) => {
 		]
 		)
 	}
+
+	
 	return (
 		<ScrollView>
 			<SafeAreaView style={{marginHorizontal: 20}}>
@@ -53,12 +55,40 @@ const LoginPage = ({ navigation }) => {
 					/>
 					<Text style={styles.title}>Fruity</Text>
 					<Formik
-						initialValues={{email: '', password: ''}}
+						initialValues={{email: '', password: '', location: ''}}
 						validationSchema={validationSchema}
 						onSubmit={(values) => console.log(values)}
 					>
 					{({ handleChange, handleBlur, handleSubmit, values, errors, isValid,touched, setFieldTouched }) => (
 						<View>
+							<View style={styles.wrapper}>
+								<Text style={styles.txtLabel}>
+									Location
+								</Text>
+								<View style={styles.inputWrapper(touched.location ? COLORS.secondary : COLORS.offwhite)}>
+									<Ionicons
+										name='location-outline'
+										size={20}
+										color={COLORS.gray}
+										style={styles.iconStyle}
+									/>
+									<TextInput
+										placeholder='Enter location'
+										onFocus={() => {setFieldTouched('location')}}
+										onBlur={() => setFieldTouched('location', '')}
+										value={values.location}
+										onChangeText={handleChange('location')}
+										autoCapitalize='none'
+										autoCorrect={false}
+										style={{flex: 1}}
+									/>
+
+								</View>
+								{touched.elocationmail && errors.location && (
+									<Text style={styles.errorMessage}>errors.location</Text>
+								)}
+							</View>
+
 							<View style={styles.wrapper}>
 								<Text style={styles.txtLabel}>
 									Email
@@ -122,7 +152,7 @@ const LoginPage = ({ navigation }) => {
 							</View>
 
 							<Button 
-								title={"L O G I N"} 
+								title={"S I G N U P"} 
 								onPress={isValid ? handleSubmit: InvalidForm} 
 								isValid={isValid}
 							/>
@@ -131,7 +161,7 @@ const LoginPage = ({ navigation }) => {
 								style={styles.registration}
 								onPress={() => navigation.navigate('SignUp')}
 							>
-								Register</Text>
+								Login</Text>
 						</View>
 					)}
 					</Formik>
@@ -141,4 +171,5 @@ const LoginPage = ({ navigation }) => {
 	)
 }
 
-export default LoginPage
+export default SignUp
+

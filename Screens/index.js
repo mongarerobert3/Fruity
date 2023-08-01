@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import LoginPage from "./LoginPage"
 import Favorites from "./Favorites";
 import Orders from "./Orders";
-
+import SignUp from "./SignUp";
 export { 
 	Home, 
 	Search, 
@@ -13,5 +13,6 @@ export {
 	Cart,
 	LoginPage,
 	Favorites,
-	Orders
+	Orders,
+	SignUp
 }
