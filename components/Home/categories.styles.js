@@ -1,17 +1,15 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-	categoriesContainer: {
-    marginTop: 10,
-  },
 	categoryItem: {
-    paddingVertical: 15,
-		marginHorizontal: 20,
-    borderBottomWidth: 1,
+    //borderBottomWidth: 1,
   },
   categoryText: {
 		fontFamily: "semibold",
     fontSize: 18,
+    marginLeft: 25,
+    marginRight: -10,
+    paddingVertical: 15,
   },
 })
 

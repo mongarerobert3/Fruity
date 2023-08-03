@@ -3,12 +3,13 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 	fruitsRowWrapper: {
 		marginHorizontal: 10,
-		//width: "100%",
-    //flexDirection: "row",
-    //flexWrap: "wrap",
+		flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start'
 	},
 	containers: {
-    marginLeft: -5,
+    marginHorizontal: 5,
     width: "100%",
     height: 200,
     margin: 10,
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: "65%",
-		width: "100%"
+		width: "100%",
+    marginTop: 3
   },
   contentContainer: {
     padding: 10,
