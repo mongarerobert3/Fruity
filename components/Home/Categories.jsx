@@ -17,9 +17,9 @@ const Categories = () => {
 
   const handlePress = (item) => {
     if (item.id === '1'){
-      navigation.navigate('FruitsRow', { selectedCategory: item.name })
+      navigation.navigate('FruitsShop', { selectedCategory: item.name })
     } else if (item.id === '2'){
-      navigation.navigate('FruitsRow', { selectedCategory: item.name })
+      navigation.navigate('vegShop', { selectedCategory: item.name })
     } else if (item.id === '3'){
       navigation.navigate('FruitsRow', { selectedCategory: item.name })
     } else {
